@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Alpine College of Education</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-brand">Alpine College of Education</div>
+        <button onclick="logout()" class="btn btn-secondary">Logout</button>
+    </div>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-item active">Dashboard</a>
+                <a href="courses.html" class="nav-item">Course Management</a>
+                <a href="subjects.html" class="nav-item">Subject Management</a>
+                <a href="students.html" class="nav-item">Student Management</a>
+                <a href="marks.html" class="nav-item">Marks Management</a>
+                <a href="attendance.html" class="nav-item">Attendance Management</a>
+                <a href="reports.html" class="nav-item">Reports</a>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <h1>Dashboard</h1>
+
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-slide active">
+                        <div class="banner" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <h2>Welcome to Alpine College of Education</h2>
+                            <p>Excellence in Higher Education</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="banner" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                            <h2>Student Information System</h2>
+                            <p>Manage courses, students, and academic records efficiently</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="banner" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                            <h2>Academic Year 2024-2025</h2>
+                            <p>Empowering students for a brighter future</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#10094;</button>
+                <button class="carousel-btn next" onclick="moveCarousel(1)">&#10095;</button>
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide(0)"></span>
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3 id="totalCourses">0</h3>
+                    <p>Total Courses</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="totalSubjects">0</h3>
+                    <p>Total Subjects</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="totalStudents">0</h3>
+                    <p>Total Students</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="totalRecords">0</h3>
+                    <p>Total Records</p>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h2>Available Courses</h2>
+                <div class="course-list">
+                    <span class="course-tag">BA</span>
+                    <span class="course-tag">BCA</span>
+                    <span class="course-tag">BSc (PCM)</span>
+                    <span class="course-tag">BSc (CBZ)</span>
+                    <span class="course-tag">MA</span>
+                    <span class="course-tag">BBA</span>
+                    <span class="course-tag">BCom</span>
+                    <span class="course-tag">MCom</span>
+                    <span class="course-tag">D.El.Ed</span>
+                    <span class="course-tag">B.Ed</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="carousel.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

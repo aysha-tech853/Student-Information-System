@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Management - Alpine College of Education</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-brand">Alpine College of Education</div>
+        <button onclick="logout()" class="btn btn-secondary">Logout</button>
+    </div>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-item">Dashboard</a>
+                <a href="courses.html" class="nav-item">Course Management</a>
+                <a href="subjects.html" class="nav-item active">Subject Management</a>
+                <a href="students.html" class="nav-item">Student Management</a>
+                <a href="marks.html" class="nav-item">Marks Management</a>
+                <a href="attendance.html" class="nav-item">Attendance Management</a>
+                <a href="reports.html" class="nav-item">Reports</a>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <h1>Subject Management</h1>
+
+            <div class="action-header">
+                <button onclick="showAddForm()" class="btn btn-primary">Add New Subject</button>
+            </div>
+
+            <div id="subjectForm" class="form-card" style="display: none;">
+                <h2 id="formTitle">Add New Subject</h2>
+                <form id="addSubjectForm" onsubmit="return handleSubjectSubmit(event)">
+                    <input type="hidden" id="subjectId" name="subjectId">
+                    <div class="form-group">
+                        <label for="subjectCode">Subject Code *</label>
+                        <input type="text" id="subjectCode" name="subjectCode" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subjectName">Subject Name *</label>
+                        <input type="text" id="subjectName" name="subjectName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="courseId">Course *</label>
+                        <select id="courseId" name="courseId" required>
+                            <option value="">Select Course</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="semester">Semester/Year *</label>
+                        <select id="semester" name="semester" required>
+                            <option value="">Select Semester/Year</option>
+                            <option value="1">Semester 1 / Year 1</option>
+                            <option value="2">Semester 2 / Year 1</option>
+                            <option value="3">Semester 3 / Year 2</option>
+                            <option value="4">Semester 4 / Year 2</option>
+                            <option value="5">Semester 5 / Year 3</option>
+                            <option value="6">Semester 6 / Year 3</option>
+                            <option value="7">Semester 7 / Year 4</option>
+                            <option value="8">Semester 8 / Year 4</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="credits">Credits *</label>
+                        <input type="number" id="credits" name="credits" min="1" max="10" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save Subject</button>
+                        <button type="button" onclick="cancelForm()" class="btn btn-secondary">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="table-container">
+                <h2>Subjects List</h2>
+                <table id="subjectsTable">
+                    <thead>
+                        <tr>
+                            <th>Subject Code</th>
+                            <th>Subject Name</th>
+                            <th>Course</th>
+                            <th>Semester/Year</th>
+                            <th>Credits</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="subjectsTableBody">
+                        <tr>
+                            <td colspan="6" class="no-data">No subjects available. Add a new subject to get started.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="subjects.js"></script>
+</body>
+</html>

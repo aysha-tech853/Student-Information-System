@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Management - Alpine College of Education</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-brand">Alpine College of Education</div>
+        <button onclick="logout()" class="btn btn-secondary">Logout</button>
+    </div>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-item">Dashboard</a>
+                <a href="courses.html" class="nav-item">Course Management</a>
+                <a href="subjects.html" class="nav-item">Subject Management</a>
+                <a href="students.html" class="nav-item">Student Management</a>
+                <a href="marks.html" class="nav-item active">Marks Management</a>
+                <a href="attendance.html" class="nav-item">Attendance Management</a>
+                <a href="reports.html" class="nav-item">Reports</a>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <h1>Marks Management</h1>
+
+            <div class="action-header">
+           <button type="button" class="btn btn-primary"
+         onclick="document.getElementById('marksForm').style.display='block'">
+            Add Marks Entry</button>
+
+
+            </div>
+                        <div id="marksForm" class="form-card" style="display: none;">
+                <h2 id="formTitle">Add Marks Entry</h2>
+                <form id="addMarksForm" action="insert_marks.php" method="POST">
+                    <input type="hidden" id="marksId" name="marksId">
+                    
+                    <div class="form-group">
+                        <label for="studentId">Student *</label>
+                        <select id="studentId" name="studentId" required>
+                            <option value="">Select Student</option>
+                            <option value="BCA0001">Rahul Saini (BCA0001)</option>
+                            <option value="MCA0002">Amit Kumar (MCA0002)</option>
+                            <option value="BBA0003">Priya Sharma (BBA0003)</option>
+                            <option value="MBA0004">Vikas Verma (MBA0004)</option>
+                            <option value="B.COM0005">Neha Gupta (B.COM0005)</option>
+                            <option value="M.COM0006">Rohit Singh (M.COM0006)</option>
+                            <option value="B.TECH0007">Akash Yadav (B.TECH0007)</option>
+                            <option value="M.TECH0008">Riya Sharma (M.TECH0008)</option>
+                            <option value="POLYTECHNIC0009">Pooja Rana (POLYTECHNIC0009)</option>
+                            <option value="BSC0010">Diya Bhatt (BSC0010)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subjectId">Subject *</label>
+                        <select id="subjectId" name="subjectId" required>
+                            <option value="">Select Subject</option>
+                            <option value="C Programming">C Programming</option>
+                            <option value="Advanced Java">Advanced Java</option>
+                            <option value="Principles of Management">Principles of Management</option>
+                            <option value="Marketing Management">Marketing Management</option>
+                            <option value="Financial Accounting">Financial Accounting</option>
+                            <option value="Corporate Accounting">Corporate Accounting</option>
+                            <option value="Engineering Mathematics">Engineering Mathematics</option>
+                            <option value="Digital Electronics">Digital Electronics</option>
+                            <option value="Basic Workshop Practice">Basic Workshop Practice</option>
+                            <option value="Web Technology">Web Technology</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="examType">Exam Type *</label>
+                        <select id="examType" name="examType" required>
+                            <option value="">Select Exam Type</option>
+                            <option value="Internal">Internal Assessment</option>
+                            <option value="Mid-Term">Mid-Term Exam</option>
+                            <option value="End-Semester">End-Semester Exam</option>
+                            <option value="Practical">Practical Exam</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="marksObtained">Marks Obtained *</label>
+
+                   <input type="number" id="marksObtained" name="marksObtained" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="maxMarks">Maximum Marks *</label>
+                            <input type="number" id="maxMarks" name="maxMarks" min="1" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="examDate">Exam Date *</label>
+                        <input type="date" id="examDate" name="examDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="remarks">Remarks</label>
+                        <textarea id="remarks" name="remarks" rows="2"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save Marks</button>
+                        <button type="button" onclick="cancelForm()" class="btn btn-secondary">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="table-container">
+                <h2>Marks Records</h2>
+                <table id="marksTable">
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Roll No.</th>
+                            <th>Subject</th>
+                            <th>Exam Type</th>
+                            <th>Marks Obtained</th>
+                            <th>Max Marks</th>
+                            <th>Percentage</th>
+                            <th>Exam Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="marksTableBody">
+                        <tr>
+                            <td colspan="9" class="no-data">No marks records available. Add a new entry to get started.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="auth.js"></script>
+    
+</body>
+</html>

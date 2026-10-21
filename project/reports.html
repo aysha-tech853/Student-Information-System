@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Alpine College of Education</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-brand">Alpine College of Education</div>
+        <button onclick="logout()" class="btn btn-secondary">Logout</button>
+    </div>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-item">Dashboard</a>
+                <a href="courses.html" class="nav-item">Course Management</a>
+                <a href="subjects.html" class="nav-item">Subject Management</a>
+                <a href="students.html" class="nav-item">Student Management</a>
+                <a href="marks.html" class="nav-item">Marks Management</a>
+                <a href="attendance.html" class="nav-item">Attendance Management</a>
+                <a href="reports.html" class="nav-item active">Reports</a>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <h1>Reports</h1>
+
+            <div class="reports-section">
+                <div class="report-card">
+                    <h2>Course-wise Student List</h2>
+                    <form action="generate_reports.php" method="POST">
+
+                        <div class="form-group">
+                            <label for="reportCourseId">Select Course *</label>
+                            <select id="reportCourseId" name="reportCourseId" required>
+                                <option value="">Select Course</option>
+                                <option value="BCA">BCA (Information Technology)</option>
+                               <option value="MCA">MCA (Information Technology)</option>
+                               <option value="BBA">BBA (Management)</option>
+                              <option value="B.TECH">B.TECH (Engineering)</option>
+                              <option value="POLYTECHNIC">POLYTECHNIC (Engineering)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Generate Report</button>
+                    </form>
+                </div>
+
+                <div class="report-card">
+                    <h2>Student Marks Report</h2>
+                    <form action="generate_reports.php" method="POST">
+
+                        <div class="form-group">
+                            <label for="reportStudentId">Select Student *</label>
+                            <select id="reportStudentId" name="reportStudentId" required>
+                                <option value="">Select Student</option>
+                                <option value="BCA0001">Rahul Saini (BCA0001)</option>
+                               <option value="MCA0002">Amit Kumar (MCA0002)</option>
+                               <option value="BBA0003">Priya Sharma (BBA0003)</option>
+                              <option value="B.TECH0007">Akash Yadav (B.TECH0007)</option>
+                    
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Generate Report</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="reportResult" class="report-result" style="display: none;">
+                <div class="report-header">
+                    <h2 id="reportTitle"></h2>
+                    <button onclick="printReport()" class="btn btn-secondary">Print Report</button>
+                </div>
+                <div id="reportContent"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="auth.js"></script>
+    
+</body>
+</html>

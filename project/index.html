@@ -1,0 +1,63 @@
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Info System</title>
+    <meta property="og:image" content="https://bolt.new/static/og_default.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
+</head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html> -->
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alpine College - Admin Login</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="login-page">
+    <div class="login-container">
+      <header class="login-header">
+        <h1 class="college-title">Alpine College of Education</h1>
+        <p>Student Information System</p>
+      </header>
+
+      <main class="login-box">
+        <h2>Administrator Login</h2>
+
+        <!-- Yahan koi action nahi, JS handle karega -->
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" required />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" required />
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit">Login</button>
+          </div>
+        </form>
+
+        <p class="login-info">
+          For internal use by Alpine College administration only.
+        </p>
+      </main>
+    </div>
+
+    <script src="auth.js"></script>
+  </body>
+</html>
+

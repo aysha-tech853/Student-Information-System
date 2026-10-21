@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Management - Alpine College of Education</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-brand">Alpine College of Education</div>
+        <button onclick="logout()" class="btn btn-secondary">Logout</button>
+    </div>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-item">Dashboard</a>
+                <a href="courses.html" class="nav-item">Course Management</a>
+                <a href="subjects.html" class="nav-item">Subject Management</a>
+                <a href="students.html" class="nav-item">Student Management</a>
+                <a href="marks.html" class="nav-item">Marks Management</a>
+                <a href="attendance.html" class="nav-item active">Attendance Management</a>
+                <a href="reports.html" class="nav-item">Reports</a>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <h1>Attendance Management</h1>
+
+            <div class="action-header">
+                <button onclick="showAddForm()" class="btn btn-primary">Add Attendance Record</button>
+            </div>
+
+            <div id="attendanceForm" class="form-card" style="display: none;">
+                <h2 id="formTitle">Add Attendance Record</h2>
+                <form id="addAttendanceForm" onsubmit="return handleAttendanceSubmit(event)">
+                    <input type="hidden" id="attendanceId" name="attendanceId">
+                    <div class="form-group">
+                        <label for="studentId">Student *</label>
+                        <select id="studentId" name="studentId" required onchange="loadStudentSubjects()">
+                            <option value="">Select Student</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="subjectId">Subject *</label>
+                        <select id="subjectId" name="subjectId" required>
+                            <option value="">Select Subject</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="attendanceDate">Date *</label>
+                        <input type="date" id="attendanceDate" name="attendanceDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Attendance Status *</label>
+                        <select id="status" name="status" required>
+                            <option value="">Select Status</option>
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                            <option value="Late">Late</option>
+                            <option value="Excused">Excused</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="remarks">Remarks</label>
+                        <textarea id="remarks" name="remarks" rows="2"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save Attendance</button>
+                        <button type="button" onclick="cancelForm()" class="btn btn-secondary">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="table-container">
+                <h2>Attendance Records</h2>
+                <table id="attendanceTable">
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Roll No.</th>
+                            <th>Subject</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Remarks</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attendanceTableBody">
+                        <tr>
+                            <td colspan="7" class="no-data">No attendance records available. Add a new record to get started.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="attendance.js"></script>
+</body>
+</html>
